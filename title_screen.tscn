@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://fbevushmwhgw"]
+[gd_scene format=3 uid="uid://fbevushmwhgw"]
 
 [ext_resource type="Script" uid="uid://derqwa403x730" path="res://title_screen.gd" id="1_v6p8y"]
 [ext_resource type="AudioStream" uid="uid://bqvedoqsa4n1k" path="res://menu_confirm.wav" id="2_ak2if"]
 
-[node name="TitleScreen" type="Control"]
+[node name="TitleScreen" type="Control" unique_id=1009346255]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,27 +12,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v6p8y")
 
-[node name="button_sound" type="AudioStreamPlayer" parent="."]
+[node name="button_sound" type="AudioStreamPlayer" parent="." unique_id=17732975]
 stream = ExtResource("2_ak2if")
 volume_db = 1.0
 
-[node name="bkgrd_color" type="ColorRect" parent="."]
+[node name="bkgrd_color" type="ColorRect" parent="." unique_id=782130343]
 layout_mode = 0
 offset_right = 384.0
 offset_bottom = 288.0
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=2054777385]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 0
 offset_left = 1.0
-offset_top = 49.0
-offset_right = 384.0
+offset_top = 24.0
+offset_right = 423.0
 offset_bottom = 98.0
 text = "Tomato Game Jam
 "
 horizontal_alignment = 1
 
-[node name="Start" type="Button" parent="."]
+[node name="Start" type="Button" parent="." unique_id=1938791404]
 layout_mode = 0
 offset_top = 119.0
 offset_right = 384.0
@@ -41,7 +41,7 @@ tooltip_text = "
 "
 text = "Start"
 
-[node name="Quit" type="Button" parent="."]
+[node name="Quit" type="Button" parent="." unique_id=741380654]
 layout_mode = 0
 offset_top = 195.0
 offset_right = 384.0
