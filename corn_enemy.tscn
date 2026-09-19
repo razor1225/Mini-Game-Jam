@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb175b4i6ifq5"]
+
+[ext_resource type="Texture2D" uid="uid://djsiw8mbfy4kv" path="res://corn_profile.png" id="1_r1icx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_310f7"]
+size = Vector2(12, 11)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+motion_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r1icx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0.5)
+shape = SubResource("RectangleShape2D_310f7")
