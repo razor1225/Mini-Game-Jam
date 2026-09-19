@@ -20,4 +20,7 @@ func _on_body_entered(body: Node2D) -> void:
 	print('hit')
 	if body is StaticBody2D:
 		queue_free()
-	elif 
+		
+	elif body is CornEnemy:
+		body.dmg(1)
+		queue_free()

@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb175b4i6ifq5"]
+[gd_scene load_steps=5 format=3 uid="uid://bb175b4i6ifq5"]
 
+[ext_resource type="Script" uid="uid://cpa6ffcsl1cmd" path="res://corn_enemy.gd" id="1_310f7"]
 [ext_resource type="Texture2D" uid="uid://djsiw8mbfy4kv" path="res://corn_profile.png" id="1_r1icx"]
+[ext_resource type="AudioStream" uid="uid://ca0ui23ovjbq4" path="res://impact sound.wav" id="3_ag0gn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_310f7"]
 size = Vector2(12, 11)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 motion_mode = 1
+script = ExtResource("1_310f7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_r1icx")
@@ -14,3 +17,18 @@ texture = ExtResource("1_r1icx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0.5)
 shape = SubResource("RectangleShape2D_310f7")
+
+[node name="impact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ag0gn")
+volume_db = 1.0
+pitch_scale = 0.5
+
+[node name="healthbar" type="ProgressBar" parent="."]
+offset_left = -3.0
+offset_top = -8.0
+offset_right = 12.515
+offset_bottom = -4.0
+scale = Vector2(0.61, 0.61)
+max_value = 2.0
+step = 1.0
+show_percentage = false
