@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://bqvedoqsa4n1k" path="res://menu_confirm.wav" id="2_ak2if"]
 [ext_resource type="Texture2D" uid="uid://cleq78ajdk6ag" path="res://titleart.png" id="3_ig5kc"]
 [ext_resource type="FontFile" uid="uid://b40gg6aqvyr7u" path="res://PeaberryBase.ttf" id="4_05l2w"]
+[ext_resource type="AudioStream" uid="uid://c6k53t5xf7ji5" path="res://Music/title_track.wav" id="5_hafda"]
 
 [node name="TitleScreen" type="Control" unique_id=1009346255]
 layout_mode = 3
@@ -56,6 +57,10 @@ offset_right = 377.0
 offset_bottom = 273.0
 theme_override_fonts/font = ExtResource("4_05l2w")
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2019534118]
+stream = ExtResource("5_hafda")
+autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

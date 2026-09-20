@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dfpocsgcmjhd2" path="res://cutscene.gd" id="1_ix241"]
 [ext_resource type="Texture2D" uid="uid://cmantros7qd8u" path="res://tomato_disguise.png" id="2_8vcau"]
 [ext_resource type="AudioStream" uid="uid://duwdv2cs31x0f" path="res://textread_typewriter.wav" id="3_8vcau"]
+[ext_resource type="AudioStream" uid="uid://c83hisqnpcbh0" path="res://Music/exposition_track.wav" id="4_bl24s"]
 
 [node name="cutscene" type="Control" unique_id=917751292]
 layout_mode = 3
@@ -41,3 +42,7 @@ autowrap_mode = 2
 [node name="Typewriter" type="AudioStreamPlayer" parent="." unique_id=790469864]
 stream = ExtResource("3_8vcau")
 volume_db = -4.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2020278560]
+stream = ExtResource("4_bl24s")
+autoplay = true
