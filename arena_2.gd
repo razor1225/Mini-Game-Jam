@@ -7,6 +7,10 @@ var kill_counter = 0
 func random_spawn():
 	var current_spawnpoint = randi() % 4
 	match current_spawnpoint:
+		0: return Vector2(160, 50)  
+		1: return Vector2(175, 30)
+		2: return Vector2(310, 150)
+		3: return Vector2(175, 260)
 	
 	
 func _on_spawn_timer_timeout():
