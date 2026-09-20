@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 TransitionController="*uid://dmknrflaptdmi"
+Music="uid://b08n3fitbaubs"
 
 [display]
 

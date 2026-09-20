@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c8rbtmgfa4bks" path="res://arena1.png" id="2_6oylj"]
 [ext_resource type="Script" uid="uid://2p0a1s18jord" path="res://tomato_man.gd" id="3_0nubv"]
 [ext_resource type="Texture2D" uid="uid://dpcan62wblxbb" path="res://tomato_profile_ingame.png" id="4_i45k3"]
+[ext_resource type="AudioStream" uid="uid://hqdg0sboxiky" path="res://Music/boss_track.wav" id="5_6oylj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_444vf"]
 size = Vector2(384, 24)
@@ -63,6 +64,10 @@ shape = SubResource("RectangleShape2D_f7m14")
 wait_time = 0.5
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1387579372]
+stream = ExtResource("5_6oylj")
+autoplay = true
 
 [connection signal="body_entered" from="tomato_man/impactzone" to="tomato_man" method="_on_impactzone_body_entered"]
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

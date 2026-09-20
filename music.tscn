@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b08n3fitbaubs"]
+
+[ext_resource type="AudioStream" uid="uid://w8mq8q7vcpfx" path="res://Music/arenaone_two.wav" id="1_3h6ak"]
+
+[node name="Music" type="AudioStreamPlayer" unique_id=238095298]
+stream = ExtResource("1_3h6ak")
