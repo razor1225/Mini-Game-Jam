@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b08n3fitbaubs"]
+
+[ext_resource type="AudioStream" uid="uid://w8mq8q7vcpfx" path="res://Music/arenaone_two.wav" id="1_tylfe"]
+[ext_resource type="Script" uid="uid://deuhsbhwbb8ns" path="res://music_manager.gd" id="2_rjr7q"]
+
+[node name="MusicManager" type="AudioStreamPlayer" unique_id=238095298]
+stream = ExtResource("1_tylfe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1167279778]
+stream = ExtResource("1_tylfe")
+script = ExtResource("2_rjr7q")
