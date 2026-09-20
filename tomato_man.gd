@@ -8,7 +8,7 @@ var bullet_scene = preload("res://bullet.tscn")
 var looking_right = true
 var can_shoot = true
 @export var cooldown: float = 0.3
-@export var health = 3
+@export var health = 10
 var invincible = false
 
 func get_input():

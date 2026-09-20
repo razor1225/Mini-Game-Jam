@@ -28,3 +28,7 @@ func _on_body_entered(body: Node2D) -> void:
 	elif body is PotatoEnemy:
 		body.dmg(1)
 		queue_free()
+		
+	elif body is BrocoliBoss:
+		body.dmg(1)
+		queue_free()

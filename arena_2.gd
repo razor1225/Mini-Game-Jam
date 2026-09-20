@@ -25,4 +25,4 @@ func _on_spawn_timer_timeout():
 	
 func _process(delta: float):
 	if kill_counter >= 5:
-		get_tree().change_scene_to_file("res://arena2.tscn")
+		TransitionController.change_scene("res://arena3.tscn")
