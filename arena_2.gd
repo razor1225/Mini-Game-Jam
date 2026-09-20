@@ -1,6 +1,6 @@
 extends Node2D
 
-var corn_enemy_scene = preload("res://corn_enemy.tscn")
+var potato_enemy_scene = preload("res://potato_enemy.tscn")
 var enemy_counter = 0
 var kill_counter = 0
 
@@ -13,10 +13,10 @@ func random_spawn():
 		3: return Vector2(50, 150)
 	
 func _on_spawn_timer_timeout():
-	var corn_enemy = corn_enemy_scene.instantiate()
-	corn_enemy.position = random_spawn()
-	corn_enemy.player = $tomato_man
-	add_child(corn_enemy)
+	var potato_enemy = potato_enemy_scene.instantiate()
+	potato_enemy.position = random_spawn()
+	potato_enemy.player = $tomato_man
+	add_child(potato_enemy)
 	enemy_counter += 1
 	print(enemy_counter)
 	
@@ -26,15 +26,3 @@ func _on_spawn_timer_timeout():
 func _process(delta: float):
 	if kill_counter >= 5:
 		get_tree().change_scene_to_file("res://arena2.tscn")
-		
-	
-## Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-	#pass # Replace with function body.
-#
-#
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#pass
-
-	

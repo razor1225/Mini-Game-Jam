@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://d1sj4hxh5y8kb"]
+
+[ext_resource type="Script" uid="uid://bmas5hk2lk8l1" path="res://potato_enemy.gd" id="1_1r3gm"]
+[ext_resource type="Texture2D" uid="uid://cm4j44n8yyntv" path="res://potato_profile.png" id="2_npvm1"]
+[ext_resource type="AudioStream" uid="uid://ca0ui23ovjbq4" path="res://impact sound.wav" id="3_1wk5b"]
+[ext_resource type="Texture2D" uid="uid://pk0bc587a133" path="res://healthempty.png" id="4_0lubd"]
+[ext_resource type="Texture2D" uid="uid://c256l0rx6qc0r" path="res://healthhalf.png" id="5_880dl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_310f7"]
+size = Vector2(8, 12)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=442980330]
+motion_mode = 1
+script = ExtResource("1_1r3gm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=721094147]
+texture = ExtResource("2_npvm1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=658035665]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_310f7")
+
+[node name="impact" type="AudioStreamPlayer" parent="." unique_id=1398286279]
+stream = ExtResource("3_1wk5b")
+volume_db = 1.0
+pitch_scale = 0.5
+
+[node name="health" type="TextureProgressBar" parent="." unique_id=457382206]
+offset_left = -2.0
+offset_top = -10.0
+offset_right = 38.0
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.5)
+max_value = 2.0
+texture_under = ExtResource("4_0lubd")
+texture_progress = ExtResource("5_880dl")
+metadata/_edit_use_anchors_ = true
+
+[node name="movetimer" type="Timer" parent="." unique_id=1397193074]
+wait_time = 0.75
+one_shot = true
+
+[node name="shoottimer" type="Timer" parent="." unique_id=1248188550]
+wait_time = 2.0
+one_shot = true
+
+[node name="firerate" type="Timer" parent="." unique_id=1137092466]
+wait_time = 0.33
+
+[connection signal="timeout" from="movetimer" to="." method="_on_movetimer_timeout"]
+[connection signal="timeout" from="shoottimer" to="." method="_on_shoottimer_timeout"]
+[connection signal="timeout" from="firerate" to="." method="_on_firerate_timeout"]

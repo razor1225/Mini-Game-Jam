@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://26dgb74typp1"]
+[gd_scene format=3 uid="uid://cpghpuf457obc"]
 
-[ext_resource type="Script" uid="uid://lplg3ru35mt1" path="res://arena.gd" id="1_h0wof"]
-[ext_resource type="Texture2D" uid="uid://c8rbtmgfa4bks" path="res://arena1.png" id="1_ubfh8"]
-[ext_resource type="Script" uid="uid://2p0a1s18jord" path="res://tomato_man.gd" id="2_27ga2"]
-[ext_resource type="Texture2D" uid="uid://dpcan62wblxbb" path="res://tomato_profile_ingame.png" id="3_h0wof"]
+[ext_resource type="Script" uid="uid://b4bb1lo804aj1" path="res://arena_2.gd" id="1_qoedf"]
+[ext_resource type="Texture2D" uid="uid://c8rbtmgfa4bks" path="res://arena1.png" id="2_nr6tn"]
+[ext_resource type="Script" uid="uid://2p0a1s18jord" path="res://tomato_man.gd" id="3_hc4ar"]
+[ext_resource type="Texture2D" uid="uid://dpcan62wblxbb" path="res://tomato_profile_ingame.png" id="4_jjdtj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_444vf"]
 size = Vector2(384, 24)
@@ -15,11 +15,11 @@ size = Vector2(8, 11)
 size = Vector2(10, 13)
 
 [node name="arena" type="Node2D" unique_id=195823163]
-script = ExtResource("1_h0wof")
+script = ExtResource("1_qoedf")
 
 [node name="bkgrd" type="Sprite2D" parent="." unique_id=33521889]
 position = Vector2(192, 144)
-texture = ExtResource("1_ubfh8")
+texture = ExtResource("2_nr6tn")
 
 [node name="walls" type="StaticBody2D" parent="." unique_id=905095023]
 
@@ -44,10 +44,10 @@ shape = SubResource("RectangleShape2D_444vf")
 [node name="tomato_man" type="CharacterBody2D" parent="." unique_id=1646155654]
 position = Vector2(188.24, 144)
 motion_mode = 1
-script = ExtResource("2_27ga2")
+script = ExtResource("3_hc4ar")
 
 [node name="Sprite2D" type="Sprite2D" parent="tomato_man" unique_id=617446961]
-texture = ExtResource("3_h0wof")
+texture = ExtResource("4_jjdtj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tomato_man" unique_id=851985136]
 position = Vector2(-4.1600037, -0.5699997)

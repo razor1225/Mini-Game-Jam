@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 @export var speed = 80
 
 var tomato_right = preload("res://tomato_profile_ingame.png")
@@ -7,7 +7,7 @@ var tomato_up = preload("res://tomato_back_ingame.png")
 var bullet_scene = preload("res://bullet.tscn")
 var looking_right = true
 var can_shoot = true
-@export var cooldown: float = 0.5
+@export var cooldown: float = 0.3
 @export var health = 3
 var invincible = false
 
@@ -44,11 +44,11 @@ func shoot():
 		return
 		
 	var mouse_direction = global_position.direction_to(get_global_mouse_position())
-	
-	if looking_right and mouse_direction.x < 0:
-		return
-	if not looking_right and mouse_direction.x > 0:
-		return
+	#
+	#if looking_right and mouse_direction.x < 0:
+		#return
+	#if not looking_right and mouse_direction.x > 0:
+		#return
 	var bullet = bullet_scene.instantiate()
 	bullet.position = global_position
 	bullet.direction = global_position.direction_to(get_global_mouse_position())
@@ -67,13 +67,17 @@ func take_hit(x):
 	health -= x
 	print("player health: ", health)
 	invincible = true
-	await get_tree().create_timer(1.0).timeout
+	for i in 5:
+		$Sprite2D.visible = false
+		await get_tree().create_timer(0.1).timeout
+		$Sprite2D.visible = true
+		await get_tree().create_timer(0.1).timeout
 	invincible = false
+	
+	if health <= 0:
+		get_tree().change_scene_to_file("res://death_screen.tscn")
 
-	#if health <= 0:
-		#get_tree().reload_current_scene()
-		#return
 func _on_impactzone_body_entered(body: Node2D):
-	print("hurtbox touched: ", body.name)
-	if body is CornEnemy:
+	print("touched: ", body.name)
+	if (body is CornEnemy) or (body is PotatoEnemy):
 		take_hit(1)

@@ -7,5 +7,5 @@ func _on_start_pressed():
 
 func _on_quit_pressed():
 	$button_sound.play()
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://title_screen.tscn")
 	
