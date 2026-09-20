@@ -8,6 +8,8 @@ var bullet_scene = preload("res://bullet.tscn")
 var looking_right = true
 var can_shoot = true
 @export var cooldown: float = 0.5
+@export var health = 3
+var invincible = false
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -57,3 +59,21 @@ func shoot():
 	can_shoot = false
 	await get_tree().create_timer(cooldown).timeout
 	can_shoot = true
+	
+func take_hit(x):
+	if invincible == true:
+		return
+
+	health -= x
+	print("player health: ", health)
+	invincible = true
+	await get_tree().create_timer(1.0).timeout
+	invincible = false
+
+	#if health <= 0:
+		#get_tree().reload_current_scene()
+		#return
+func _on_impactzone_body_entered(body: Node2D):
+	print("hurtbox touched: ", body.name)
+	if body is CornEnemy:
+		take_hit(1)

@@ -1,16 +1,19 @@
 extends CharacterBody2D
 class_name CornEnemy
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-@export var health: int = 2
-
-func _ready():
-	$healthbar.max_value = health
-	$healthbar.value = health
 	
+@export var health = 2
+@export var speed = 50
+var player = null
+
+func _physics_process(delta):
+	if player == null:
+		return
+	velocity = global_position.direction_to(player.global_position) * speed
+	move_and_slide()
+
 func dmg(x):
 	health -= x
+	$health.value = health
 	$impact.play()
 	if health <= 0:
 		$impact.play()

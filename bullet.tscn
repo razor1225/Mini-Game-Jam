@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://vxcivdkreg8q"]
+[gd_scene format=3 uid="uid://vxcivdkreg8q"]
 
 [ext_resource type="Texture2D" uid="uid://xlxkun5fw3yh" path="res://bullet.png" id="1_v7oki"]
-[ext_resource type="Script" uid="uid://s7scey2qov36" path="res://area_2d.gd" id="1_v8qja"]
+[ext_resource type="Script" uid="uid://s7scey2qov36" path="res://bullet.gd" id="1_v8qja"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7oki"]
 size = Vector2(4, 4)
 
-[node name="bullet" type="Area2D"]
+[node name="bullet" type="Area2D" unique_id=1015641861]
 script = ExtResource("1_v8qja")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2072944437]
 texture = ExtResource("1_v7oki")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1453278269]
 shape = SubResource("RectangleShape2D_v7oki")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

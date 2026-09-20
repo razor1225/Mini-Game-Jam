@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://26dgb74typp1"]
+[gd_scene format=3 uid="uid://26dgb74typp1"]
 
 [ext_resource type="Script" uid="uid://lplg3ru35mt1" path="res://arena.gd" id="1_h0wof"]
 [ext_resource type="Texture2D" uid="uid://c8rbtmgfa4bks" path="res://arena1.png" id="1_ubfh8"]
@@ -9,49 +9,59 @@
 size = Vector2(384, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fu4bq"]
-size = Vector2(11, 11)
+size = Vector2(8, 11)
 
-[node name="arena" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7m14"]
+size = Vector2(12, 15)
+
+[node name="arena" type="Node2D" unique_id=195823163]
 script = ExtResource("1_h0wof")
 
-[node name="bkgrd" type="Sprite2D" parent="."]
+[node name="bkgrd" type="Sprite2D" parent="." unique_id=33521889]
 position = Vector2(192, 144)
 texture = ExtResource("1_ubfh8")
 
-[node name="walls" type="StaticBody2D" parent="."]
+[node name="walls" type="StaticBody2D" parent="." unique_id=905095023]
 
-[node name="Left" type="CollisionShape2D" parent="walls"]
+[node name="Left" type="CollisionShape2D" parent="walls" unique_id=368063373]
 position = Vector2(12, 96)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_444vf")
 
-[node name="Right" type="CollisionShape2D" parent="walls"]
+[node name="Right" type="CollisionShape2D" parent="walls" unique_id=985122041]
 position = Vector2(372, 96)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_444vf")
 
-[node name="Top" type="CollisionShape2D" parent="walls"]
+[node name="Top" type="CollisionShape2D" parent="walls" unique_id=678779760]
 position = Vector2(192, 12)
 shape = SubResource("RectangleShape2D_444vf")
 
-[node name="Bottom" type="CollisionShape2D" parent="walls"]
+[node name="Bottom" type="CollisionShape2D" parent="walls" unique_id=738609020]
 position = Vector2(192, 276)
 shape = SubResource("RectangleShape2D_444vf")
 
-[node name="tomato_man" type="CharacterBody2D" parent="."]
+[node name="tomato_man" type="CharacterBody2D" parent="." unique_id=1646155654]
 position = Vector2(68.16, 123.07)
 motion_mode = 1
 script = ExtResource("2_27ga2")
 
-[node name="Sprite2D" type="Sprite2D" parent="tomato_man"]
+[node name="Sprite2D" type="Sprite2D" parent="tomato_man" unique_id=617446961]
 texture = ExtResource("3_h0wof")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tomato_man"]
-position = Vector2(-2.6600037, -0.5699997)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tomato_man" unique_id=851985136]
+position = Vector2(-4.1600037, -0.5699997)
 shape = SubResource("RectangleShape2D_fu4bq")
 
-[node name="spawn_timer" type="Timer" parent="."]
+[node name="impactzone" type="Area2D" parent="tomato_man" unique_id=1100579546]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tomato_man/impactzone" unique_id=354525376]
+position = Vector2(-4.1600037, -0.5699997)
+shape = SubResource("RectangleShape2D_f7m14")
+
+[node name="spawn_timer" type="Timer" parent="." unique_id=394634686]
 wait_time = 0.5
 autostart = true
 
+[connection signal="body_entered" from="tomato_man/impactzone" to="tomato_man" method="_on_impactzone_body_entered"]
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

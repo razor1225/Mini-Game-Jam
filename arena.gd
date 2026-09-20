@@ -1,7 +1,7 @@
 extends Node2D
 
 var corn_enemy_scene = preload("res://corn_enemy.tscn")
-
+var enemy_counter = 0
 
 func random_spawn():
 	var current_spawnpoint = randi() % 4
@@ -14,7 +14,13 @@ func random_spawn():
 func _on_spawn_timer_timeout():
 	var corn_enemy = corn_enemy_scene.instantiate()
 	corn_enemy.position = random_spawn()
+	corn_enemy.player = $tomato_man
 	add_child(corn_enemy)
+	enemy_counter += 1
+	print(enemy_counter)
+	
+	if enemy_counter >= 10:
+		$spawn_timer.stop()
 	
 	
 ## Called when the node enters the scene tree for the first time.
@@ -25,3 +31,5 @@ func _on_spawn_timer_timeout():
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 	#pass
+
+	
