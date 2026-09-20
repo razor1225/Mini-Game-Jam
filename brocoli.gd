@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name BrocoliBoss
 
 var player = null
+var health_bar = null
 @onready var enemy_bullet_scene = load("res://enemy_bullet.tscn")
 
 var brocoli_right = preload("res://broccoli_front.png")
@@ -13,6 +14,8 @@ var brocoli_up = preload("res://broccoli_back.png")
 var direction = Vector2.ZERO
 
 func _ready():
+	health_bar.max_value = health
+	health_bar.value = health
 	await get_tree().create_timer(0.5).timeout
 	if player == null:
 		return
@@ -45,7 +48,7 @@ func _physics_process(delta):
 
 func dmg(x):
 	health -= x
-	$health.value = health
+	health_bar.value = health
 	$impact.play()
 	if health <= 0:
 		$impact.play()

@@ -4,11 +4,6 @@ var corn_enemy_scene = preload("res://corn_enemy.tscn")
 var enemy_counter = 0
 var kill_counter = 0
 
-func _ready():
-	if not MusicManager.playing:
-		MusicManager.stream=preload("res://Music/arenaone_two.wav")
-		MusicManager.play()
-		
 func random_spawn():
 	var current_spawnpoint = randi() % 4
 	match current_spawnpoint:
