@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cljgtfti0rgrf" path="res://death_screen.gd" id="1_ex68u"]
 [ext_resource type="AudioStream" uid="uid://bqvedoqsa4n1k" path="res://menu_confirm.wav" id="2_6bi5g"]
 [ext_resource type="AudioStream" uid="uid://3536rnjnpdkw" path="res://Music/death_track.wav" id="3_6bi5g"]
-[ext_resource type="AudioStream" uid="uid://j2a7y7kjvh6" path="res://SFX/death.wav" id="4_y0ggs"]
 
 [node name="Deathscreen" type="Control" unique_id=1009346255]
 layout_mode = 3
@@ -51,11 +50,6 @@ text = "Admit defeat to the Vegetable Federation"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=728965633]
 stream = ExtResource("3_6bi5g")
-autoplay = true
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1022753253]
-stream = ExtResource("4_y0ggs")
-volume_db = 12.772
 autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

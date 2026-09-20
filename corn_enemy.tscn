@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cpa6ffcsl1cmd" path="res://corn_enemy.gd" id="1_310f7"]
 [ext_resource type="Texture2D" uid="uid://djsiw8mbfy4kv" path="res://corn_profile.png" id="1_r1icx"]
-[ext_resource type="AudioStream" uid="uid://crtp1245cx4j5" path="res://SFX/actual impact sound.wav" id="3_catff"]
+[ext_resource type="AudioStream" uid="uid://ca0ui23ovjbq4" path="res://impact sound.wav" id="3_ag0gn"]
 [ext_resource type="Texture2D" uid="uid://pk0bc587a133" path="res://healthempty.png" id="4_catff"]
-[ext_resource type="Texture2D" uid="uid://c256l0rx6qc0r" path="res://healthhalf.png" id="5_q38tt"]
+[ext_resource type="Texture2D" uid="uid://cn3xhy11kokm5" path="res://redhealthfull.png" id="5_catff"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_310f7"]
 size = Vector2(8, 12)
@@ -21,7 +21,7 @@ position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_310f7")
 
 [node name="impact" type="AudioStreamPlayer" parent="." unique_id=1398286279]
-stream = ExtResource("3_catff")
+stream = ExtResource("3_ag0gn")
 volume_db = 1.0
 pitch_scale = 0.5
 
@@ -33,5 +33,5 @@ offset_bottom = 32.0
 scale = Vector2(0.5, 0.5)
 max_value = 2.0
 texture_under = ExtResource("4_catff")
-texture_progress = ExtResource("5_q38tt")
+texture_progress = ExtResource("5_catff")
 metadata/_edit_use_anchors_ = true

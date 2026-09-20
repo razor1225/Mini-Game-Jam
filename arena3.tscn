@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://2p0a1s18jord" path="res://tomato_man.gd" id="3_0nubv"]
 [ext_resource type="Texture2D" uid="uid://dpcan62wblxbb" path="res://tomato_profile_ingame.png" id="4_i45k3"]
 [ext_resource type="AudioStream" uid="uid://hqdg0sboxiky" path="res://Music/boss_track.wav" id="5_6oylj"]
+[ext_resource type="Texture2D" uid="uid://cn3xhy11kokm5" path="res://redhealthfull.png" id="5_i45k3"]
+[ext_resource type="Texture2D" uid="uid://bf28cxc3wxl0x" path="res://healthfull.png" id="5_nq7al"]
+[ext_resource type="Texture2D" uid="uid://draw2xmse7fwb" path="res://border.png" id="6_p2imj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_444vf"]
 size = Vector2(384, 50)
@@ -65,9 +68,22 @@ wait_time = 0.5
 one_shot = true
 autostart = true
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1770497011]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="healthbar" type="TextureProgressBar" parent="." unique_id=1770497011]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 123.0
+offset_top = 234.0
+offset_right = 136.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10.02, 10.02)
+max_value = 10.0
+texture_under = ExtResource("5_i45k3")
+texture_over = ExtResource("6_p2imj")
+texture_progress = ExtResource("5_nq7al")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=247514117]
 stream = ExtResource("5_6oylj")
