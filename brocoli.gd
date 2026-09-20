@@ -8,7 +8,7 @@ var brocoli_right = preload("res://broccoli_front.png")
 var brocoli_up = preload("res://broccoli_back.png")
 
 @export var speed = 20
-@export var health = 5
+@export var health = 10
 
 var direction = Vector2.ZERO
 

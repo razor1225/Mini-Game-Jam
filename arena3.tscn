@@ -4,10 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c8rbtmgfa4bks" path="res://arena1.png" id="2_6oylj"]
 [ext_resource type="Script" uid="uid://2p0a1s18jord" path="res://tomato_man.gd" id="3_0nubv"]
 [ext_resource type="Texture2D" uid="uid://dpcan62wblxbb" path="res://tomato_profile_ingame.png" id="4_i45k3"]
-[ext_resource type="AudioStream" uid="uid://hqdg0sboxiky" path="res://Music/boss_track.wav" id="5_6oylj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_444vf"]
-size = Vector2(384, 24)
+size = Vector2(384, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fu4bq"]
 size = Vector2(8, 11)
@@ -25,21 +24,21 @@ texture = ExtResource("2_6oylj")
 [node name="walls" type="StaticBody2D" parent="." unique_id=905095023]
 
 [node name="Left" type="CollisionShape2D" parent="walls" unique_id=368063373]
-position = Vector2(12, 96)
+position = Vector2(26, 96)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_444vf")
 
 [node name="Right" type="CollisionShape2D" parent="walls" unique_id=985122041]
-position = Vector2(372, 96)
+position = Vector2(349, 94)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_444vf")
 
 [node name="Top" type="CollisionShape2D" parent="walls" unique_id=678779760]
-position = Vector2(192, 12)
+position = Vector2(189, -11)
 shape = SubResource("RectangleShape2D_444vf")
 
 [node name="Bottom" type="CollisionShape2D" parent="walls" unique_id=738609020]
-position = Vector2(192, 276)
+position = Vector2(190, 303)
 shape = SubResource("RectangleShape2D_444vf")
 
 [node name="tomato_man" type="CharacterBody2D" parent="." unique_id=1646155654]
@@ -65,9 +64,9 @@ wait_time = 0.5
 one_shot = true
 autostart = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1387579372]
-stream = ExtResource("5_6oylj")
-autoplay = true
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1770497011]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="body_entered" from="tomato_man/impactzone" to="tomato_man" method="_on_impactzone_body_entered"]
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

@@ -7,7 +7,7 @@ var enemy_counter = 0
 
 func _on_spawn_timer_timeout():
 	var brocoli = brocoli_boss_scene.instantiate()
-	brocoli.position = Vector2(320, 150)
+	brocoli.position = Vector2(310, 150)
 	brocoli.player = $tomato_man
 	add_child(brocoli)
 

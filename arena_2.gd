@@ -7,10 +7,7 @@ var kill_counter = 0
 func random_spawn():
 	var current_spawnpoint = randi() % 4
 	match current_spawnpoint:
-		0: return Vector2(200, 50)  
-		1: return Vector2(350, 150)
-		2: return Vector2(200, 250)   
-		3: return Vector2(50, 150)
+	
 	
 func _on_spawn_timer_timeout():
 	var potato_enemy = potato_enemy_scene.instantiate()
