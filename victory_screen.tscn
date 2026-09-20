@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dei3r5jphh8gg"]
+
+[ext_resource type="Script" uid="uid://cnfvj5uw13ptj" path="res://victory_screen.gd" id="1_r8dr5"]
+[ext_resource type="AudioStream" uid="uid://bqvedoqsa4n1k" path="res://menu_confirm.wav" id="1_rbj82"]
+[ext_resource type="AudioStream" uid="uid://djqk7ql2m75bg" path="res://Music/victory_track.wav" id="2_qyds8"]
+
+[sub_resource type="Gradient" id="Gradient_qyds8"]
+offsets = PackedFloat32Array(0, 0.0055555557, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.73888886, 0.73888886, 0.73888886, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qyds8"]
+gradient = SubResource("Gradient_qyds8")
+
+[sub_resource type="LabelSettings" id="LabelSettings_qyds8"]
+font_size = 12
+font_color = Color(1, 0, 0, 1)
+
+[node name="Victory Screen" type="Node2D" unique_id=1882097126]
+script = ExtResource("1_r8dr5")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1589630434]
+offset_right = 383.0
+offset_bottom = 288.0
+texture = SubResource("GradientTexture1D_qyds8")
+
+[node name="Label" type="Label" parent="." unique_id=1992534232]
+offset_left = -256.0
+offset_top = 42.0
+offset_right = 640.0
+offset_bottom = 125.0
+text = "– MISSION SUCCESS –
+With the support of your undying tomato brethren, 
+your defeat of  Broccoli Boss will surely ensure a FRUIT VICTORY."
+label_settings = SubResource("LabelSettings_qyds8")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1312405964]
+offset_left = 111.0
+offset_top = 166.0
+offset_right = 278.0
+offset_bottom = 200.0
+text = "Quit Game"
+
+[node name="button_sound" type="AudioStreamPlayer" parent="." unique_id=2126717806]
+stream = ExtResource("1_rbj82")
+volume_db = 6.386
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=358493572]
+stream = ExtResource("2_qyds8")
+volume_db = -1.825
+autoplay = true
